@@ -2,9 +2,10 @@
 <html>
 <head>
     <title>Prediction App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Prediction App</h1>
+    <h1>Pycaret App</h1>
     <form action="/predict" method="POST">
         <label for="age">Age:</label><br>
         <input type="number" id="age" name="age"><br>
@@ -20,5 +21,26 @@
         <input type="text" id="region" name="region"><br>
         <input type="submit" value="Predict">
     </form>
+
+    <script>
+        document.querySelector('input[type="submit"]').addEventListener('mouseover', function() {
+            this.style.animation = 'pulse  1s infinite';
+        });
+
+        document.querySelector('input[type="submit"]').addEventListener('mouseout', function() {
+            this.style.animation = '';
+        });
+
+        // Define the @keyframes for the pulse animation
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.05); }
+                    100% { transform: scale(1); }
+                }
+            </style>
+        `);
+    </script>
 </body>
 </html>
